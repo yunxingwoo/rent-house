@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="{% static 'css/semantic.css' %}" media="screen" title="no title">
+        <link rel="stylesheet" href="{% static 'css/Register.css' %}" media="screen" title="no title">
+    </head>
+    <body>
+        <!-- 灰色的背景 -->
+        <div class="ui view">
+            <!-- 中间的白色部分 -->
+            <form class="ui form" method="post">
+            {% csrf_token %}
+            {{form}}
+            {% if form.errors %}
+                <div class="{{field.errors}} field">
+
+                </div>
+            {% endif %}
+                <!--{% if form.errors %}
+                    <div class="ui error message">
+                        {{form.errors}}
+                    </div>
+                    {% for field in form %}
+                        <div class="{{ field.errors|yesno:'error, ' }} field">
+                            {{ field.label}}
+                            {{ field}}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for field in form %}
+                        <div class="field">
+                            {{ field.label}}
+                            {{ field}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+-->
+                <button type="submit" class="ui circular right button" >
+                    注册
+                    <i class="chevron inverted right icon"></i>
+                </button>
+
+            </form>
+        </div>
+    </body>
+</html>
